@@ -1,0 +1,6 @@
+logging:
+  file: lnnu-spring-cloud-logs/spring.log
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: INFO

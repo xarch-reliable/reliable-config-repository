@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 39.98.38.238
+    port: 8310
+    username: guest
+    password: guest

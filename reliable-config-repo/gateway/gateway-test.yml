@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: sender
+          uri: lb://lnnu-test-sender
+          order: 0
+          predicates:
+            - Path=/sender/**
+            - Method=GET
+          filters:
+            - StripPrefix=1
+            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            - RemoveRequestHeader=Origin
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback/sender
+        - id: receiver
+          uri: lb://lnnu-test-receiver
+          order: 0
+          predicates:
+            - Path=/sender/**
+            - Method=POST
+          filters:
+            - StripPrefix=1
+            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            - RemoveRequestHeader=Origin
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback/receiver
