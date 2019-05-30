@@ -11,6 +11,7 @@ spring:
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            - RemoveRequestHeader=Origin
             - name: Hystrix
               args:
                 name: fallbackcmd
@@ -24,6 +25,7 @@ spring:
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            - RemoveRequestHeader=Origin
             - name: Hystrix
               args:
                 name: fallbackcmd
