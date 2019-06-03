@@ -3,7 +3,7 @@ wechat:
   appsecret: 744071bffd7bf4f2fdb96a109b348853
   token: xarchgateway
   pay:
-    filepath: /etc/ssl/wechatcert/apiclient_cert.p12
+    filepath: /etc/ssl/pay/apiclient_cert.p12
     signtype: MD5 #HMAC_SHA256 MD5
     tradetype: JSAPI
     mch:
