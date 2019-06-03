@@ -4,7 +4,7 @@ wechat:
   token: xarchgateway
   pay:
     filepath: /etc/ssl/pay/apiclient_cert.p12
-    signtype: MD5 #HMAC_SHA256 MD5
+    signtype: HMAC-SHA256 #HMAC-SHA256 MD5
     tradetype: JSAPI
     mch:
       id: 1511552031
