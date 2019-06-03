@@ -4,11 +4,11 @@ wechat:
   token: xarchgateway
   pay:
     filepath: /etc/ssl/pay/apiclient_cert.p12
-    signtype: HMAC-SHA256 #HMAC-SHA256 MD5
+    signtype: MD5 #HMAC-SHA256 MD5
     tradetype: JSAPI
     mch:
       id: 1511552031
       key: g3MonUZtNHkdmzicIlibx6iaFqAc56vx
     notify:
-      unified: https://www.xarchgroup.net/reliable/notify/unified 
+      unified: https://www.xarchgroup.net/reliable/notify/unified
       refund: https://www.xarchgroup.net/reliable/notify/refund

@@ -30,3 +30,31 @@ spring:
               args:
                 name: fallbackcmd
                 fallbackUri: forward:/fallback/wechat/messenger
+        - id: pay
+          uri: lb://reliable-wechat-pay
+          order: 0
+          predicates:
+            - Path=/weixinpay/**
+            - Method=POST
+          filters:
+            - StripPrefix=1
+            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            - RemoveRequestHeader=Origin
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback/wechat/messenger
+        - id: notify
+          uri: lb://reliable-wechat-pay-notify
+          order: 0
+          predicates:
+            - Path=/paynotify/**
+            - Method=POST
+          filters:
+            - StripPrefix=1
+            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            - RemoveRequestHeader=Origin
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback/wechat/messenger
