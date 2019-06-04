@@ -2,6 +2,8 @@ wechat:
   appid: wxee59e72d3dbc4420
   appsecret: 744071bffd7bf4f2fdb96a109b348853
   token: xarchgateway
+  jwt:
+    key: HI1B1hhXHApOgRy9xUfnKBmHXfm7j4sB83J402qT
   pay:
     filepath: /etc/ssl/pay/apiclient_cert.p12
     signtype: MD5 #HMAC-SHA256 MD5
