@@ -35,7 +35,6 @@ spring:
           order: 0
           predicates:
             - Path=/weixinpay/**
-            - Method=POST
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Response-Default-Foo, Default-Bar
@@ -49,7 +48,6 @@ spring:
           order: 0
           predicates:
             - Path=/paynotify/**
-            - Method=POST
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Response-Default-Foo, Default-Bar
