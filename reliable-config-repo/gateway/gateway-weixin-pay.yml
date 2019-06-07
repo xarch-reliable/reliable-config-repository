@@ -7,11 +7,26 @@ spring:
           order: 0
           predicates:
             - Path=/weixinpay/**
+            - Method=POST
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Response-Default-Foo, Default-Bar
             - RemoveRequestHeader=Origin
             - Validate=true
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback/wechat/pay/order
+        - id: pay-get
+          uri: lb://reliable-wechat-pay
+          order: 0
+          predicates:
+            - Path=/weixinpay/**
+            - Method=GET
+          filters:
+            - StripPrefix=1
+            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            - RemoveRequestHeader=Origin
             - name: Hystrix
               args:
                 name: fallbackcmd
@@ -25,8 +40,21 @@ spring:
             - StripPrefix=1
             - AddResponseHeader=X-Response-Default-Foo, Default-Bar
             - RemoveRequestHeader=Origin
-            - Validate=true
             - name: Hystrix
               args:
                 name: fallbackcmd
                 fallbackUri: forward:/fallback/wechat/pay/refund
+        - id: oauthjwt
+          uri: lb://reliable-wechat-oauth-jwt
+          order: 0
+          predicates:
+            - Path=/oauthjwt/**
+            - Method=GET
+          filters:
+            - StripPrefix=1
+            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            - RemoveRequestHeader=Origin
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback/wechat/oauth
