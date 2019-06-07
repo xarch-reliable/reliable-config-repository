@@ -57,4 +57,4 @@ spring:
             - name: Hystrix
               args:
                 name: fallbackcmd
-                fallbackUri: forward:/fallback/wechat/oauth
+                fallbackUri: forward:/fallback/wechat/oauth/jwt
