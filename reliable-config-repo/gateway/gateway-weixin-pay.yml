@@ -2,11 +2,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: pay
-          uri: lb://reliable-wechat-pay
+        - id: business
+          uri: lb://reliable-business-manager
           order: 0
           predicates:
-            - Path=/weixinpay/**
+            - Path=/business/**
             - Method=POST
           filters:
             - StripPrefix=1
@@ -17,33 +17,6 @@ spring:
               args:
                 name: fallbackcmd
                 fallbackUri: forward:/fallback/wechat/pay/order
-        - id: pay-get
-          uri: lb://reliable-wechat-pay
-          order: 0
-          predicates:
-            - Path=/weixinpay/**
-            - Method=GET
-          filters:
-            - StripPrefix=1
-            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
-            - RemoveRequestHeader=Origin
-            - name: Hystrix
-              args:
-                name: fallbackcmd
-                fallbackUri: forward:/fallback/wechat/pay/order
-        - id: notify
-          uri: lb://reliable-wechat-pay-notify
-          order: 0
-          predicates:
-            - Path=/paynotify/**
-          filters:
-            - StripPrefix=1
-            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
-            - RemoveRequestHeader=Origin
-            - name: Hystrix
-              args:
-                name: fallbackcmd
-                fallbackUri: forward:/fallback/wechat/pay/refund
         - id: oauthjwt
           uri: lb://reliable-wechat-oauth-jwt
           order: 0
