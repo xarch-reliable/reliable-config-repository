@@ -1,4 +1,4 @@
 ribbon:
   eager-load:
     enabled: true
-    clients: reliable-business-manager
+    clients: reliable-business-manager,reliable-wechat-oauth-jwt
