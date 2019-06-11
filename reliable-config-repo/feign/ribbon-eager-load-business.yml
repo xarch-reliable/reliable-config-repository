@@ -1,0 +1,4 @@
+ribbon:
+  eager-load:
+    enabled: true
+    clients: reliable-actid-manager,reliable-openid-manager, reliable-activity-info-manager, reliable-wechat-pay, reliable-wechat-pay-id-manager, reliable-wechat-jsapi-manager
