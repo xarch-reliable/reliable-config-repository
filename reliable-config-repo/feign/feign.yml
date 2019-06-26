@@ -10,4 +10,4 @@ hystrix:
           enabled: true
         isolation:
           thread:
-            timeoutInMilliseconds: 10000 #断路器超时时间，默认1000ms
+            timeoutInMilliseconds: 3000 #断路器超时时间，默认1000ms
