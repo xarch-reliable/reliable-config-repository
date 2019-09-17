@@ -1,7 +1,7 @@
 ribbon:
   eager-load:
     enabled: true
-    clients: reliable-actid-manager,reliable-openid-manager, reliable-activity-info-manager, reliable-wechat-pay, reliable-wechat-pay-id-manager, reliable-wechat-jsapi-manager
+    clients: reliable-activityinfo-manager, reliable-data-center, reliable-actid-manager, reliable-openid-manager, reliable-activity-info-manager, reliable-wechat-pay, reliable-wechat-pay-id-manager, reliable-wechat-jsapi-manager
   OkToRetryOnAllOperations: false #对所有操作请求都进行重试,默认false
   ReadTimeout: 5000   #负载均衡超时时间，默认值5000
   ConnectTimeout: 5000 #ribbon请求连接的超时时间，默认值2000
