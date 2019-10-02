@@ -17,7 +17,7 @@ spring:
                 name: fallbackcmd
                 fallbackUri: forward:/fallback/wechat/oauth
         - id: messenger
-          uri: lb://reliable-wechat-messeage-manager
+          uri: lb://reliable-wechat-message-manager
           order: 0
           predicates:
             - Path=/oauth/**
