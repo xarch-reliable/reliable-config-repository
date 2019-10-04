@@ -10,4 +10,4 @@ spring:
     password:
     #连接超时时间 毫秒（默认2000）
     #请求redis服务的超时时间,这里注意设置成0时取默认时间2000
-    timeout: 5000
+    timeout: 10000
